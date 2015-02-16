@@ -1,6 +1,9 @@
 if platform?("ubuntu","debian")
   include_recipe "selenium::apt"
 end
+include_recipe "iptables"
+
+iptables_rule "allow_private_ips"
 
 USER=node['selenium']['user']
 
